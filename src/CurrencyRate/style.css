@@ -1,0 +1,25 @@
+.currencyRate__title {
+    display: inline-block;
+    margin-right: 5px;
+    max-width: 200px;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.currencyRate__field {
+    max-width: 150px;
+    width: 100%;
+    padding: 10px;
+    margin-right: 5px;
+    border: 1px solid #196723;
+    border-radius: 5px;
+}
+
+.currencyRate__field:invalid {
+    background-color: #a6f3917a;
+}
+
+.currencyRate__select {
+    max-width: 100px;
+    width: 100%;
+}
