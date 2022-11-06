@@ -13,6 +13,7 @@ const Form = ({ calculateResult }) => {
 
     const onFormReset = () => {
         setAmountExchange("");
+        setCurrency("Euro");
     };
 
     return (
