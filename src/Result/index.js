@@ -1,8 +1,10 @@
 import "./style.css";
 
-const Result = () => (
+const Result = ({ result }) => (
     <p className="result">
-        Za tą kwotę otrzymasz: <strong>N/A</strong>
+        Za tę kwotę otrzymasz: <strong>
+            {result}
+        </strong>
     </p>
 );
 
