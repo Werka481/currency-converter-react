@@ -21,6 +21,7 @@ function App() {
       <Header title="Kalkulator walut" />
       <Form
         calculateResult={calculateResult}
+        setResult={setResult}
       />
       <Result
         result={result}
