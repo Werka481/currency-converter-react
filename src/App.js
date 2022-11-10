@@ -3,7 +3,7 @@ import Form from "./Form";
 import Result from "./Result";
 import Container from "./Container";
 import { useState } from "react";
-import { currencies } from "./currencies/currencies";
+import { currencies } from "./utils/currencies";
 
 function App() {
   const [result, setResult] = useState(null);
