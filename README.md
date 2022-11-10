@@ -6,7 +6,7 @@ https://werka481.github.io/currency-converter-react/
 ## Description
 The currency-converter exchange PLN into euro, dollar or british pound. There are two buttons in the project. The first is responsible for recalculation and the second is for resetting the form. I invite you to watch the instructions.
 
-![instruction](public/converter.gif)
+![instruction](public/converter.screen.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
