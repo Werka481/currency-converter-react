@@ -55,8 +55,11 @@ const Form = ({ calculateResult, setResult }) => {
             <p className="form__paragraph">Pola oznaczone * są wymagane.</p>
             <p>
                 <button className="form__button">Przelicz</button>
-                <input className="form__field form__field--reset"
-                    type="reset" value="Wyczyść" />
+                <input
+                    className="form__field form__field--reset"
+                    type="reset"
+                    value="Wyczyść"
+                />
             </p>
         </form >
     )
