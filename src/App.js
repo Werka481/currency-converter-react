@@ -2,6 +2,7 @@ import Header from "./Header";
 import Form from "./Form";
 import Result from "./Result";
 import Container from "./Container";
+import GlobalStyle from "./GlobalStyles/globalStyles";
 import { useState } from "react";
 import { currencies } from "./utils/currencies";
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <Container>
+      <GlobalStyle />
       <Header title="Kalkulator walut" />
       <Form
         calculateResult={calculateResult}
