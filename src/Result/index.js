@@ -1,11 +1,11 @@
-import "./style.css";
+import { StyledResult } from "./styled";
 
 const Result = ({ result }) => (
-    <p className="result">
+    <StyledResult>
         Za tę kwotę otrzymasz: <strong>
             {result}
         </strong>
-    </p>
+    </StyledResult>
 );
 
 export default Result;

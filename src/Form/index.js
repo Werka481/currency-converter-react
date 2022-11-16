@@ -1,4 +1,4 @@
-import "./style.css";
+import { StyledForm, Fieldset, Legend, LabelText, Input, Select, Information, Button } from "./styled";
 import { useState } from "react";
 import { currencies } from "../utils/currencies";
 
@@ -18,13 +18,12 @@ const Form = ({ calculateResult, setResult }) => {
     };
 
     return (
-        <form className="form" onSubmit={onFormSubmit} onReset={onFormReset}>
-            <fieldset className="form__fieldset">
-                <legend className="form__legend">Przelicz kursy walut:</legend>
+        <StyledForm onSubmit={onFormSubmit} onReset={onFormReset}>
+            <Fieldset>
+                <Legend>Przelicz kursy walut:</Legend>
                 <label>
-                    <span className="form__labelText">Kwota do przeliczenia*:</span>
-                    <input
-                        className="form__field"
+                    <LabelText>Kwota do przeliczenia*:</LabelText>
+                    <Input
                         type="number"
                         required min="0.01"
                         step="0.01"
@@ -34,9 +33,8 @@ const Form = ({ calculateResult, setResult }) => {
                     PLN
                 </label>
                 <label>
-                    <span className="form__labelText">Wybierz walutę:</span>
-                    <select
-                        className="form__field form__select"
+                    <LabelText>Wybierz walutę:</LabelText>
+                    <Select
                         name="currencyConverted"
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
@@ -49,19 +47,19 @@ const Form = ({ calculateResult, setResult }) => {
                                 {currency.name}
                             </option>
                         ))};
-                    </select>
+                    </Select>
                 </label>
-            </fieldset>
-            <p className="form__paragraph">Pola oznaczone * są wymagane.</p>
+            </Fieldset>
+            <Information>Pola oznaczone * są wymagane.</Information>
             <p>
-                <button className="form__button">Przelicz</button>
-                <input
-                    className="form__field form__field--reset"
+                <Button>Przelicz</Button>
+                <Input
+                    reset
                     type="reset"
                     value="Wyczyść"
                 />
             </p>
-        </form >
+        </StyledForm>
     )
 };
 
