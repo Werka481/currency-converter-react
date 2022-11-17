@@ -11,7 +11,7 @@ The currency-converter exchange PLN into euro, dollar or british pound. There ar
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Technologies used:
-1. BEM
+1. Styled Components
 2. CSS Flex-box
 3. ES6+ features
 ## Available Scripts
