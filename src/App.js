@@ -29,6 +29,7 @@ function App() {
       />
       <Result
         result={result}
+        ratesData={ratesData}
       />
     </main>
   );

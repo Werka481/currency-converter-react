@@ -1,10 +1,17 @@
 import { StyledResult } from "./styled";
 
-const Result = ({ result }) => (
+const Result = ({ result, ratesData }) => (
     <StyledResult>
-        Za tę kwotę otrzymasz: <strong>
-            {result.resultFinal} {result.currency}
-        </strong>
+        {ratesData.loading === "yes"
+            ?
+            <>
+                Za tę kwotę otrzymasz:
+                <strong>
+                    {result.resultFinal} {result.currency}
+                </strong>
+            </>
+            : null
+        }
     </StyledResult>
 );
 
