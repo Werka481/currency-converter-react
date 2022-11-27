@@ -1,10 +1,9 @@
-import { StyledForm, Fieldset, Legend, LabelText, Input, Select, Information, Button } from "./styled";
+import { StyledForm, Fieldset, Legend, LabelText, Input, Select, Information, Button, SourceData } from "./styled";
 import { useState } from "react";
-import { currencies } from "../utils/currencies";
 
-const Form = ({ calculateResult, setResult }) => {
+const Form = ({ calculateResult, setResult, ratesData }) => {
     const [amountExchange, setAmountExchange] = useState("");
-    const [currency, setCurrency] = useState(currencies[0].short);
+    const [currency, setCurrency] = useState("EUR");
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -19,47 +18,69 @@ const Form = ({ calculateResult, setResult }) => {
 
     return (
         <StyledForm onSubmit={onFormSubmit} onReset={onFormReset}>
-            <Fieldset>
-                <Legend>Przelicz kursy walut:</Legend>
-                <label>
-                    <LabelText>Kwota do przeliczenia*:</LabelText>
-                    <Input
-                        type="number"
-                        required min="0.01"
-                        step="0.01"
-                        value={amountExchange}
-                        onChange={({ target }) => setAmountExchange(target.value)}
-                    />
-                    PLN
-                </label>
-                <label>
-                    <LabelText>Wybierz walutę:</LabelText>
-                    <Select
-                        name="currencyConverted"
-                        value={currency}
-                        onChange={({ target }) => setCurrency(target.value)}
-                    >
-                        {currencies.map(currency => (
-                            <option
-                                key={currency.short}
-                                value={currency.short}
-                            >
-                                {currency.name}
-                            </option>
-                        ))};
-                    </Select>
-                </label>
-            </Fieldset>
-            <Information>Pola oznaczone * są wymagane.</Information>
-            <p>
-                <Button>Przelicz</Button>
-                <Input
-                    reset
-                    type="reset"
-                    value="Wyczyść"
-                />
-            </p>
-        </StyledForm>
+            {ratesData.loading === "no"
+                ? (
+                    <Information news>
+                        Trwa ładowanie danych... Prosimy o chwileczkę cierpliwości🙂
+                    </Information>
+                )
+                : (ratesData.loading === "error")
+                    ? (
+                        <Information news>
+                            Przeprazsamy coś poszło nie tak. Sprawdź czy masz połącznie z internetem.
+                            Jeśli tak to widocznie nasz błąd.😬 Spróbuj później.😊
+                        </Information>
+                    )
+                    : (
+                        <>
+                            <Fieldset>
+                                <Legend>Przelicz kursy walut:</Legend>
+                                <label>
+                                    <LabelText>Kwota do przeliczenia*:</LabelText>
+                                    <Input
+                                        type="number"
+                                        required min="0.01"
+                                        step="0.01"
+                                        value={amountExchange}
+                                        onChange={({ target }) => setAmountExchange(target.value)}
+                                    />
+                                    PLN
+                                </label>
+                                <label>
+                                    <LabelText>Wybierz walutę:</LabelText>
+                                    <Select
+                                        name="currencyConverted"
+                                        value={currency}
+                                        onChange={({ target }) => setCurrency(target.value)}
+                                    >
+                                        {Object.keys(ratesData.rates).map((rates) => (
+                                            <option
+                                                key={rates}
+                                                value={rates}
+                                            >
+                                                {rates}
+                                            </option>
+                                        ))};
+                                    </Select>
+                                </label>
+                            </Fieldset>
+                            <Information>Pola oznaczone * są wymagane.</Information>
+                            <p>
+                                <Button>Przelicz</Button>
+                                <Input
+                                    reset
+                                    type="reset"
+                                    value="Wyczyść"
+                                />
+                            </p>
+                            <SourceData>
+                                Kursy walut pobierane są z Europejskiego Centralnego Banku.
+                            </SourceData>
+                            <SourceData>Aktualna ratesData: <strong>{ratesData.date}</strong></SourceData>
+                        </>
+                    )
+            }
+        </StyledForm >
     )
 };
 

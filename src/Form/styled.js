@@ -66,6 +66,17 @@ export const Information = styled.p`
     text-align: right;
     font-size: 13px;
     font-style: italic;
+
+    ${({news}) => news && css`
+        font-size: 18px;
+        text-align: justify;
+        font-style: normal;   
+    `};
+`;
+
+export const SourceData = styled.p`
+    text-align: center;
+    font-size: 15px;
 `;
 
 export const Button = styled.button`
