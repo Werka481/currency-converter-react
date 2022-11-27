@@ -27,7 +27,7 @@ const Form = ({ calculateResult, setResult, ratesData }) => {
                 : (ratesData.loading === "error")
                     ? (
                         <Information news>
-                            Przeprazsamy coś poszło nie tak. Sprawdź czy masz połącznie z internetem.
+                            Przepraszamy coś poszło nie tak. Sprawdź czy masz połącznie z internetem.
                             Jeśli tak to widocznie nasz błąd.😬 Spróbuj później.😊
                         </Information>
                     )
