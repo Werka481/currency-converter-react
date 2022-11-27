@@ -3,17 +3,19 @@ import Form from "./Form";
 import Result from "./Result";
 import GlobalStyle from "./GlobalStyles/globalStyles";
 import { useState } from "react";
-import { currencies } from "./utils/currencies";
+import { useCurrencies } from "./useCurrencies";
 
 function App() {
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState({});
+  const ratesData = useCurrencies();
 
   const calculateResult = (amountExchange, currency) => {
-    const rateExchange = currencies.find(({ short }) => short === currency).rate;
-    const currencyFinal = currencies.find(({ short }) => short === currency).short;
+    const rateExchange = ratesData.rates[currency];
 
-    setResult((+amountExchange / rateExchange).toFixed(2) + currencyFinal);
-
+    setResult({
+      resultFinal: (+amountExchange * rateExchange).toFixed(2),
+      currency,
+    });
   };
 
   return (
@@ -23,6 +25,7 @@ function App() {
       <Form
         calculateResult={calculateResult}
         setResult={setResult}
+        ratesData={ratesData}
       />
       <Result
         result={result}

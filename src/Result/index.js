@@ -3,7 +3,7 @@ import { StyledResult } from "./styled";
 const Result = ({ result }) => (
     <StyledResult>
         Za tę kwotę otrzymasz: <strong>
-            {result}
+            {result.resultFinal} {result.currency}
         </strong>
     </StyledResult>
 );
