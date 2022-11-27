@@ -6,14 +6,22 @@ https://werka481.github.io/currency-converter-react/
 ## Description
 The currency-converter exchange PLN into euro, dollar or british pound. There are two buttons in the project. The first is responsible for recalculation and the second is for resetting the form. I invite you to watch the instructions.
 
-![instruction](public/converter.screen.gif)
+![instruction](public/converterapi.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Technologies used:
 1. Styled Components
-2. CSS Flex-box
-3. ES6+ features
+2. Hooks: useState, useEffect
+3. CSS Flex-box
+4. ES6+ features
+5. Custom Hooks
+6. Axios
+7. Promise, async/await
+8. Webpack, npm
+9. Error handling
+10. Markdown
+11. Immutability
 ## Available Scripts
 
 In the project directory, you can run:
