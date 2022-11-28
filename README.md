@@ -22,6 +22,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 9. Error handling
 10. Markdown
 11. Immutability
+12. Curriencies are downloaded from the open API
+13. Date
 ## Available Scripts
 
 In the project directory, you can run:
