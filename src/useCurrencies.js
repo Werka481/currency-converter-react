@@ -5,7 +5,7 @@ export const useCurrencies = () => {
     const [ratesData, setRatesData] = useState({
         date: null,
         rates: null,
-        loading: "no",
+        status: "loading",
     });
 
     useEffect(() => {
@@ -15,11 +15,11 @@ export const useCurrencies = () => {
                 setRatesData({
                     date: response.data.date,
                     rates: response.data.rates,
-                    loading: "yes",
+                    status: "success",
                 });
             } catch (error) {
                 setRatesData({
-                    loading: "error"
+                    status: "error"
                 });
             };
         };

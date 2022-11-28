@@ -2,7 +2,7 @@ import { StyledResult } from "./styled";
 
 const Result = ({ result, ratesData }) => (
     <StyledResult>
-        {ratesData.loading === "yes"
+        {ratesData.status === "success"
             ?
             <>
                 Za tę kwotę otrzymasz:

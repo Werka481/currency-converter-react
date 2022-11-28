@@ -10,7 +10,8 @@ const Form = ({ calculateResult, setResult, ratesData }) => {
         calculateResult(amountExchange, currency);
     };
 
-    const onFormReset = () => {
+    const onFormReset = (event) => {
+        event.preventDefault();
         setAmountExchange("");
         setCurrency("EUR");
         setResult("");
@@ -18,13 +19,13 @@ const Form = ({ calculateResult, setResult, ratesData }) => {
 
     return (
         <StyledForm onSubmit={onFormSubmit} onReset={onFormReset}>
-            {ratesData.loading === "no"
+            {ratesData.status === "loading"
                 ? (
                     <Information news>
                         Trwa ładowanie danych... Prosimy o chwileczkę cierpliwości🙂
                     </Information>
                 )
-                : (ratesData.loading === "error")
+                : (ratesData.status === "error")
                     ? (
                         <Information news>
                             Przepraszamy coś poszło nie tak. Sprawdź czy masz połącznie z internetem.
@@ -76,7 +77,7 @@ const Form = ({ calculateResult, setResult, ratesData }) => {
                             <SourceData>
                                 Kursy walut pobierane są z Europejskiego Centralnego Banku.
                             </SourceData>
-                            <SourceData>Aktualna ratesData: <strong>{ratesData.date}</strong></SourceData>
+                            <SourceData>Aktualna data: <strong>{ratesData.date}</strong></SourceData>
                         </>
                     )
             }
